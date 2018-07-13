@@ -1,0 +1,66 @@
+<div class="container">
+	<ul>
+		<li>
+			<button
+				class="previous"
+				(click)="movePrev()"
+			>
+				previous
+			</button>
+		</li>
+		<li>
+			<button
+				class="next"
+				(click)="moveNext()"
+			>
+				next
+			</button>
+		</li>
+	</ul>
+</div>
+
+<div class="form">
+	<form [formGroup]="form">
+		<div class="form__container">
+			<div class="form__field">
+				<input 
+					type="text"
+					[(ngModel)]="name"
+					
+					name="name"
+					id="name" 
+					formControlName="name"
+					placeholder="page"
+				>
+						<span
+			class="form-help-text"
+			*ngIf="form.get('name').invalid && form.get('name').touched"
+		>
+			<span *ngIf="form.get('name')['errors']['required']">Ім'я не може бути порожнім.</span>
+			<span 
+				*ngIf="form.get('name')['errors']['minlength'] && form.get('name')['errors']['minlength']['requiredLength']"
+			>
+				Ім'я має бути більше
+				{{ form.get('name')['errors']['minlength']['requiredLength'] }}
+				символів. Зараз {{ form.get('name')['errors']['minlength']['actualLength'] }}.
+			</span>
+			<span
+				*ngIf="form.get('name').errors['pageError']"
+			>
+				Сторінку не знайдено
+			</span>
+		</span>
+				<!-- <div>
+					<span class="error" *ngIf="pageFind">Page Not Found</span>
+				</div> -->
+			</div>
+			<div class="form__button">
+				<button
+					(click)="openPage()"
+					[disabled]="form.invalid"
+				>go to the page</button>
+			</div>
+		</div>
+	</form>
+</div>
+

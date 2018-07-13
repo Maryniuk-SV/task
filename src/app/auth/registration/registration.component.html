@@ -1,0 +1,99 @@
+<div class="registration">
+    <h2>Registration</h2>
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form__container">
+          <div class="form__name form__item">
+              <label for="name">name</label>
+              <input 
+              type="text"
+              placeholder="name"
+              id="name"
+              formControlName="name"
+              >
+              <span
+              class="form__error"
+              *ngIf="form.get('name').invalid && form.get('name').touched"
+              >
+              <span *ngIf="form.get('name')['errors']['required']">Ім'я не може бути порожнім.</span>
+              <span 
+              *ngIf="form.get('name')['errors']['minlength'] && form.get('name')['errors']['minlength']['requiredLength']"
+              >
+              Ім'я має бути більше
+              {{ form.get('name')['errors']['minlength']['requiredLength'] }}
+              символів. Зараз {{ form.get('name')['errors']['minlength']['actualLength'] }}.
+            </span>
+          </span>
+        </div>
+        <div class="form__email form__item">
+          <label for="email">email</label>
+          <input 
+          type="text"
+          placeholder="email"
+          id="email"
+          formControlName="email"
+          >
+          <span
+          class="form__error"
+          *ngIf="form.get('email').invalid && form.get('email').touched"
+          >
+          <span *ngIf="form.get('email')['errors']['required']">Email не може бути порожнім.</span>
+          <span 
+          *ngIf="form.get('email')['errors']['minlength'] && form.get('email')['errors']['minlength']['requiredLength']"
+          >
+          Email повинен мати більше
+          {{ form.get('email')['errors']['minlength']['requiredLength'] }}
+          символів. Зараз {{ form.get('email')['errors']['minlength']['actualLength'] }}.
+        </span>
+      </span>
+    </div>
+    <div class="form__password form__item">
+      <label for="password">password</label>
+      <input 
+      type="password"
+      placeholder="password"
+      id="password"
+      formControlName="password"
+      >
+      <span
+      class="form__error"
+      *ngIf="form.get('password').invalid && form.get('password').touched"
+      >
+      <span *ngIf="form.get('password')['errors']['required']">Пароль не може бути порожнім.</span>
+      <span 
+      *ngIf="form.get('password')['errors']['minlength'] && form.get('password')['errors']['minlength']['requiredLength']"
+      >
+      Пароль має бути більше
+      {{ form.get('password')['errors']['minlength']['requiredLength'] }}
+      символів. Зараз {{ form.get('password')['errors']['minlength']['actualLength'] }}.
+    </span>
+    <span 
+    *ngIf="form.get('password')['errors']['maxlength'] && form.get('password')['errors']['maxlength']['requiredLength']"
+    >
+    Пароль має бути менше
+    {{ form.get('password')['errors']['maxlength']['requiredLength'] }}
+    символів. Зараз {{ form.get('password')['errors']['maxlength']['actualLength'] }}.
+  </span>
+  </span>
+  </div>
+  <div class="form__check-admin">
+    <input 
+      type="checkbox"
+      id="admin"
+      formControlName="admin"
+      >
+    <label for="admin">Admin?</label>
+  </div>
+  <div class="form__submit">
+    <button
+    class="btn"
+    type="submit"
+    [disabled]="form.invalid"
+    >
+    sign up
+  </button>
+  <div class="question">Вже є акаунт? <a [routerLink]="'/login'">Вхід!</a></div>
+  </div>
+  </div>
+  </form>
+  </div>
+  

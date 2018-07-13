@@ -1,0 +1,128 @@
+h2{
+	font: 28px Verdana, Arial, sans-serif;
+	text-align: center;
+	text-transform: uppercase;
+}
+.item-list{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	font: 16px Verdana, Arial, sans-serif;
+	& i{
+		color: darkmagenta;
+		transition: color .4s;
+		&:hover{
+			color: blueviolet;
+		}
+	}
+}
+.load{
+	border: 1px solid rgba(255, 255, 255,.5);
+	outline: none;
+	background-color: #e3e3e3;
+	padding: 10px;
+	height: 50px;
+	width: 200px;
+	font: 16px Verdana, Arial, sans-serif;
+	text-transform: uppercase;
+	color: #999	;
+	font-weight: bold;
+	cursor: pointer;
+	border-radius: 5px;
+	box-sizing: border-box;
+	&:active{
+		box-shadow: inset 2px 2px 5px 0 rgba(255, 255, 255,.5), inset -2px -2px 5px 0 rgba(255, 255, 255,.5);
+	}
+}
+.list{
+	padding: 20px;
+	display: flex;
+	list-style-type: none;
+	font: 18px Verdana, Arial, sans-serif;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	&__item{
+		width: 80%;
+		border: 1px solid #999;
+		background-color: #e3e3e3;
+		padding: 10px 20px;
+		margin-bottom: 20px;
+		color: #333;
+		border-radius: 5px;
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+	}
+}
+
+.edit-wrap{
+	width: 70px;
+	display: flex;
+	justify-content: space-between;
+	color: blue;
+	& .edit, & .delete{
+		cursor: pointer;
+	}
+}
+
+.add-employee{
+	margin-top: 30px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	& .wrapper{
+		width: 80%;
+		display: flex;
+		justify-content: space-between;
+	}
+}
+.add{
+	width: 70%;
+	height: 40px;
+	border: 1px solid #999;
+	border-radius: 5px;
+	outline: none;
+	margin-right: 5%;
+	padding: 0 20px;
+}
+.send{
+	border: 1px solid #999;
+	border-radius: 5px;
+	cursor: pointer;
+	text-transform: capitalize;
+	font-size: 18px;
+	background-color: #e3e3e3;
+	outline: none;
+	width: 15%;
+	height: 40px;
+}
+
+.edit-field{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #e3e3e3;
+	padding: 0 20px;
+	padding-left: 5px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	display: flex;
+	justify-content: space-between;
+	height: 42px;
+	align-items: center;
+}
+.editable{
+	padding: 0 15px;
+	height: 30px;
+	width: 70%;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+.save{
+	cursor: pointer;
+	color: blue;
+}

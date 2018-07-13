@@ -1,0 +1,50 @@
+{
+  "items": [
+    {
+      "id": 2,
+      "name": "Працівник №2"
+    },
+    {
+      "id": 3,
+      "name": "Працівник №3"
+    },
+    {
+      "name": "Item",
+      "id": 4
+    },
+    {
+      "name": "sdgsdg",
+      "id": 5
+    },
+    {
+      "name": "ssssss",
+      "editable": false,
+      "id": 6
+    },
+    {
+      "name": "aaaa",
+      "editable": false,
+      "id": 7
+    },
+    {
+      "name": "num1",
+      "editable": false,
+      "id": 8
+    },
+    {
+      "name": "hasf",
+      "editable": false,
+      "id": 9
+    },
+    {
+      "name": "adqadsa",
+      "editable": false,
+      "id": 10
+    },
+    {
+      "name": "asdD",
+      "editable": false,
+      "id": 11
+    }
+  ]
+}

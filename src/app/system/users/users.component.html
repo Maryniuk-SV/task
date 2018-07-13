@@ -1,0 +1,46 @@
+<h2>Users
+		<a [routerLink]="'/login'" class="exit">log out</a>
+</h2>
+
+<div class="item-list">
+	<button
+		class="load"
+		(click)="loadItems()"
+	>Завантажити</button>
+	<div class="add-employee">
+		<div class="wrapper">
+			<input 
+				class="add"
+				type="text"
+				[(ngModel)]="employeeName"
+			>
+			<button
+				class="send"
+				(click)="addItem()"
+			>add</button>
+		</div>
+	</div>
+	<ul class="list">
+		<li 
+			class="list__item"
+			*ngFor="let item of items"
+		>
+			<span>{{ item.name }}</span>
+			<div *ngIf="this.currentUser" class="edit-wrap">
+				<span class="edit" (click)="editItem(item)"><i class="fas fa-pencil-alt"></i></span>
+				<span class="delete" (click)="deleteItem(item)"><i class="fas fa-trash"></i></span>
+			</div>
+			<div class="edit-field" *ngIf="item.editable">
+				<input 
+					type="text"
+					[(ngModel)]="item.name"
+					class="editable"
+				>
+				<span 
+					class="save"
+					(click)="onSave(item)"
+				><i class="fas fa-check"></i></span>
+			</div>
+		</li>
+	</ul>
+</div>
