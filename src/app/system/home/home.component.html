@@ -6,28 +6,12 @@
 						<span>Edit Line</span>
 						<span class="example-spacer"></span>
 						<mat-icon class="example-icon" (click)="openModal()">add</mat-icon>
-						<mat-icon class="example-icon">create</mat-icon>
+						<mat-icon class="example-icon" (click)="create()">create</mat-icon>
 						<mat-icon class="example-icon" (click)="delete()">delete</mat-icon>
 					</mat-toolbar-row>
 				</mat-toolbar>
 
 		<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-			<!-- Checkbox Column -->
-			<!-- <ng-container matColumnDef="select">
-			  <th mat-header-cell *matHeaderCellDef>
-				<mat-checkbox (change)="$event ? masterToggle() : null"
-							  [checked]="selection.hasValue() && isAllSelected()"
-							  [indeterminate]="selection.hasValue() && !isAllSelected()">
-				</mat-checkbox>
-			  </th>
-			  <td mat-cell *matCellDef="let row">
-				<mat-checkbox (click)="$event.stopPropagation()"
-							  (change)="$event ? selection.toggle(row) : null"
-							  [checked]="selection.isSelected(row)">
-				</mat-checkbox>
-			  </td>
-			</ng-container> -->
 		  
 			<!-- Position Column -->
 			<ng-container matColumnDef="password">

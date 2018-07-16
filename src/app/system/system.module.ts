@@ -17,7 +17,9 @@ import { ContactComponent } from './contact/contact.component';
 import { NavComponent } from './nav/nav.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UsersComponent } from './users/users.component';
-import { DialogComponent } from '../shared/dialog/dialog.component';
+import { DialogComponent } from '../shared/modal/dialog/dialog.component';
+import { CreateComponent } from '../shared/modal/create/create.component';
+import { DeleteComponent } from '../shared/modal/delete/delete.component';
 
 @NgModule({
   imports: [
@@ -42,7 +44,9 @@ import { DialogComponent } from '../shared/dialog/dialog.component';
     UsersComponent
   ],
   entryComponents: [
-    DialogComponent
+    DialogComponent,
+    CreateComponent,
+    DeleteComponent
   ]
 })
 export class SystemModule { }

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-// import {SelectionModel} from '@angular/cdk/collections';
 import {MatDialog} from '@angular/material';
 
 import { ApiService } from './../../shared/service/api.service';
-import { DialogComponent } from '../../shared/dialog/dialog.component';
+
+import { DialogComponent } from '../../shared/modal/dialog/dialog.component';
+import { CreateComponent } from '../../shared/modal/create/create.component';
+import { DeleteComponent } from '../../shared/modal/delete/delete.component';
 
 export interface Items {
   name: string;
@@ -23,6 +25,8 @@ export class HomeComponent implements OnInit {
   items__data: Items[] = [];
   selected: boolean = false;
   currentItem: any;
+  deleted: boolean;
+
   constructor(
     private apiService: ApiService,
     public dialog: MatDialog
@@ -30,32 +34,54 @@ export class HomeComponent implements OnInit {
   
   ngOnInit() {
   }
+
   displayedColumns: string[] = ['name', 'email', 'admin', 'password'];
   dataSource = new UserDataSourse(this.apiService);
+  arrSelected: any[] = [];
   
   public openModal() {
-    this.dialog.open(DialogComponent);
-    // this.dialog.open(DialogComponent, {data: {name : this.currentItem.name}});
+    this.dialog.open(DialogComponent).afterClosed().subscribe(data => {
+      this.refresh();
+    });
   }
   
   toggleSelect(event) {
     event.selected = !event.selected;
     this.currentItem = event;
+    this.arrSelected.push(event);
   }
   
-  delete() {
-    console.log(this.currentItem);
-    this.apiService.deleteEmployee(this.currentItem)
-    .subscribe((data) => {
+  public create() {
+    if(this.arrSelected.length > 1){
+      alert('Виберіть лише один елемент!');
+      this.arrSelected = [];
+      this.refresh();
+      return;
+    }
+    this.dialog.open(CreateComponent, {data: {name : this.currentItem}}).afterClosed()
+    .subscribe(data => {
+    })
+  }
+
+  refresh() {
+    this.apiService.getEmployee().subscribe(data => {
       this.dataSource = new UserDataSourse(this.apiService);
     });
   }
+
+  delete() {
+    this.dialog.open(DeleteComponent, {data: {name : this.arrSelected}})
+    .afterClosed().subscribe(data => {
+      this.refresh();
+    });
+    this.arrSelected = [];
+  }
 }
 
-  export class UserDataSourse {
-    constructor(private apiService: ApiService) {}
-
-    connect() {
-      return this.apiService.getEmployee();
-    }
+export class UserDataSourse {
+  constructor(private apiService: ApiService) {}
+  
+  connect() {
+    return this.apiService.getEmployee();
   }
+}

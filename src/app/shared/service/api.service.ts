@@ -13,6 +13,10 @@ export class ApiService {
 	}
 
 	changeEmployee(data: any) {
+		return this.http.put(this.baseUrl + `user`, {data});
+	}
+
+	createUser(data: any) {
 		return this.http.put(this.baseUrl + `user`, data);
 	}
 

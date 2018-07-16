@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { ApiService } from '../service/api.service';
+import { ApiService } from '../../service/api.service';
  
 @Component({
   selector: 'app-dialog',
@@ -22,7 +22,7 @@ export class DialogComponent implements OnInit {
   ngOnInit() {
   }
   close() {
-    this.apiService.addEmployee(this.name)
+    this.apiService.addEmployee(this.name).subscribe();
     this.matDialogRef.close();
   }
 }

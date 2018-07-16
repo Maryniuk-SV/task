@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 
-
 import { AuthModule } from './auth/auth.module';
 import { SystemModule } from './system/system.module';
 import { AppRoutingModule } from "./app-routing.module";
@@ -15,12 +14,16 @@ import { ApiService } from './shared/service/api.service';
 import { UsersService} from './shared/service/users.service';
 
 import { AppComponent } from './app.component';
-import { DialogComponent } from './shared/dialog/dialog.component';
+import { DialogComponent } from './shared/modal/dialog/dialog.component';
+import { CreateComponent } from './shared/modal/create/create.component';
+import { DeleteComponent } from './shared/modal/delete/delete.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogComponent
+    DialogComponent,
+    CreateComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
